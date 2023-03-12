@@ -74,7 +74,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'react-webpack-antd-boilerplate',
+            title: 'YT Analytics',
             filename: "index.html",
             template: "src/index.html"
         })
