@@ -9,18 +9,20 @@ import SignUp from "../pages/Authentication/signup";
 
 // Dashboard
 import Dashboard from "../pages";
+import HomeContainer from "../pages/Home";
 
 const userRoutes = [
 
   //Dashboard
   { path: "/dashboard", component: Dashboard },
+  { path: "/", component: HomeContainer},
 
   // this route should be at the end of all other routes
   {
     path: "/",
     exact: true,
     component: () => {
-      return <Navigate to="/dashboard" />;
+      return <Navigate to="/" />;
     },
   },
 ];
