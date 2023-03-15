@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    li {
+        @apply p-4 text-textColor
+    }
+
+    button {
+        @apply text-white border bg-primaryColor border-primaryColor
+        hover:bg-transparent hover:text-primaryColor
+    }
+}
