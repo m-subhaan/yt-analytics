@@ -23,7 +23,7 @@ function Login() {
     setPassword('')
   }, [clickSignIn])
   return (
-    <MDBContainer fluid className="p-3 my-5v" style={{ maxWidth: "70%", marginTop: "200px" }}>
+    <MDBContainer fluid className="p-3 my-5v" style={{ maxWidth: "70%", marginTop: "7%" }}>
 
       <MDBRow>
 
@@ -38,9 +38,9 @@ function Login() {
 
           <div className="d-flex justify-content-between mx-4 mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
+            <a href="#">Forgot password?</a>
           </div>
-          <button type="button" class="btn btn-primary btn-lg mb-5" style={{ width: "100%" }} onClick={() => setClickSignIn(true)}>Sign in</button>
+          <button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => setClickSignIn(true)}>Sign in</button>
 
           {/* <MDBBtn className="mb-4 w-100" size="lg" onClick={setClickSignIn(true)}>Sign in</MDBBtn> */}
           {/* <MDBBtn className="mb-4 w-100" size="lg" onClick={(e)=>console.log('clicked')}>Sign in</MDBBtn> */}
