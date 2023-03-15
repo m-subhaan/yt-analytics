@@ -1,16 +1,11 @@
 import React from "react";
-import Navbar from "../../components/navbar/NavBar";
-import ImageSlider from "../../components/carousel/Carousel";
-
-
 
 const HomeComponent = () => {
     return (
         <>
-            <Navbar/>
-            <ImageSlider/>
+            <h1 className="text-3xl font-bold underline">Hello world!</h1>
         </>
-    )
-}
+    );
+};
 
 export default HomeComponent;
