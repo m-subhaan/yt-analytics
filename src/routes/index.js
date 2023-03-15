@@ -11,11 +11,16 @@ import SignUp from "../pages/Authentication/signup";
 import Dashboard from "../pages";
 import HomeContainer from "../pages/Home";
 
+//Pricing
+import Pricing from "../pages/Pricing/pricing";
+
+
 const userRoutes = [
 
   //Dashboard
   { path: "/dashboard", component: Dashboard },
   { path: "/", component: HomeContainer},
+  { path: "/pricing", component: Pricing},
 
   // this route should be at the end of all other routes
   {
