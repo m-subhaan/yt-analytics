@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "../../components/navbar/NavBar";
+import ImageSlider from "../../components/carousel/Carousel";
+
 
 
 const HomeComponent = () => {
     return (
         <>
             <Navbar/>
-            <p>nav is here</p>
+            <ImageSlider/>
         </>
     )
 }

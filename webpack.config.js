@@ -14,7 +14,7 @@ module.exports = {
         clean: true
     },
     resolve: {
-        extensions: [".ts", ".js", ".json", ".jsx"]
+        extensions: [".ts", ".js", ".json", ".jsx", ".css", ".scss"]
     },
     devtool: "source-map",
     devServer: {
@@ -44,6 +44,17 @@ module.exports = {
                                 javascriptEnabled: true
                             },
                         },
+                    },
+                ],
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "style-loader",
+                    },
+                    {
+                        loader: "css-loader",
                     },
                 ],
             },
