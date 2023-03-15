@@ -23,7 +23,7 @@ function Login() {
     setPassword('')
   }, [clickSignIn])
   return (
-    <MDBContainer fluid className="p-3 my-5v" style={{ maxWidth: "1600px", marginTop: "200px" }}>
+    <MDBContainer fluid className="p-3 my-5v" style={{ maxWidth: "70%", marginTop: "200px" }}>
 
       <MDBRow>
 
