@@ -2,13 +2,8 @@ import React from "react";
 import { PricingTable, PricingSlot, PricingDetail } from 'react-pricing-table';
 import {
     MDBContainer,
-    MDBCard,
-    MDBCardBody,
-    MDBCardImage,
     MDBRow,
     MDBCol,
-    MDBIcon,
-    MDBInput
 }
     from 'mdb-react-ui-kit';
 
