@@ -30,11 +30,18 @@ const Pricing = () => {
                 <MDBRow>
                     <MDBCol md='6' className="mx-auto">
                         <PricingTable highlightColor='#00e778'>
-                            <PricingSlot buttonText='Buy Now' title='Basic' priceText='$10/month' buttonClass='btn-class'>
+                            <PricingSlot title='Basic' priceText='$10/month'>
                                 <PricingDetail> <b>15</b> projects</PricingDetail>
                                 <PricingDetail> <b>5 GB</b> storage</PricingDetail>
                                 <PricingDetail> <b>5</b> users</PricingDetail>
                                 <PricingDetail strikethrough> <b>Time tracking</b></PricingDetail>
+                                <button style={{
+                                    width: "50%",
+                                    display: 'block',
+                                    margin: '0 auto',
+
+                                }}
+                                    className="btn btn-lg btn-dark mt-5">Buy Now</button>
                             </PricingSlot>
                         </PricingTable>
                     </MDBCol>
