@@ -68,7 +68,7 @@ function App() {
 
               <div className='d-flex flex-row mt-2'>
                 <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: '#ff6219' }} />
-                <span className="h1 fw-bold mb-0">Welcome to YT Analytics</span>
+                <p className="h1 fw-bold mb-0">Welcome to <span style={{color:'#00e778'}}>YT Analytics</span></p>
               </div>
 
               <h5 className="fw-normal my-4 pb-3" style={{ letterSpacing: '1px' }}>Let's Sign up your account</h5>
@@ -112,7 +112,7 @@ function App() {
                     className="btn btn-lg btn-dark mb-2" onClick={Signup}>Signup</button>
                 </MDBCol>
               </MDBRow>
-              <a href="login" className="d-flex justify-content-between mx-4 mb-4">Already have an account? Login here</a>
+              <a href="login" className="d-flex justify-content-between mb-4 mt-2" style={{color:'#353738'}}>Already have an account? Login here</a>
 
             </MDBCardBody>
           </MDBCol>
