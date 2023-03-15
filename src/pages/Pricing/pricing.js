@@ -11,7 +11,6 @@ import {
     MDBInput
 }
     from 'mdb-react-ui-kit';
-import "./styles.css";
 
 const Pricing = () => {
     return (
