@@ -1,6 +1,6 @@
 import React from "react";
 import {Routes, BrowserRouter as Router, Route} from "react-router-dom";
-import Navbar from "./components/Navbar";
+import MenuBar from "./components/Navbar";
 
 import {userRoutes, authRoutes} from "./routes";
 import "./styles/main.css";
@@ -8,7 +8,7 @@ import "./styles/main.css";
 const routes = [userRoutes, authRoutes];
 const App = () => (
     <>
-        <Navbar />
+        <MenuBar />
         <Router>
             <Routes>
                 {routes.map(key =>
