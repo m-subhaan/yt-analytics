@@ -2,16 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
+@layer base {
     li {
-        @apply p-4 text-textColor
+        @apply p-4 text-textColor;
     }
 
     button {
         @apply text-white border bg-primaryColor border-primaryColor
-        hover:bg-transparent hover:text-primaryColor
+        hover:bg-transparent hover:text-primaryColor;
     }
-    svg{
+    
+    svg {
         display: inline;
     }
 }
