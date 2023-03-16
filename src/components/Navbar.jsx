@@ -23,9 +23,9 @@ function MenuBar() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
-                        <Nav className="me-auto ml-5" style={{ height: '3.5rem' }}>
-                            <Nav.Link className="me-auto ml-5 mt-2" href="/" style={{ color: 'white' }}>Home</Nav.Link>
-                            <Nav.Link className="me-auto ml-5 mt-2" href="/pricing" style={{ color: 'white' }}>Pricing</Nav.Link>
+                        <Nav className="me-auto ml-5">
+                            <Nav.Link  href="/" style={{ color: 'white' }}>Home</Nav.Link>
+                            <Nav.Link  href="/pricing" style={{ color: 'white' }}>Pricing</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
                             <Button href="/login" variant="" style={{ color: 'white' }} >Login</Button>
