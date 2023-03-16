@@ -14,7 +14,7 @@ function Header() {
                     <p className="text-textColor py-3 text-2xl">
                         Get free insights and guidance to keep your YouTube channel growing.
                     </p>
-                    <Link>
+                    <Link to="/signup">
                         <button className="py-3 w-full px-6 rounded-md sm:w-[300px] my-4">Getting Started</button>
                     </Link>
                 </div>
