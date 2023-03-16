@@ -23,9 +23,9 @@ function TrustedBy() {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-10">
+        <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 text-center py-10">
             <h1 className="text-textColor text-3xl md:text-4xl font-bold">Trusted By</h1>
-            <p className="text-textColor w-96 mx-auto leading-normal font-bold mb-12">Read What Others Have to Say</p>
+            <p className="text-textColor mx-auto leading-normal font-bold mb-12">Read What Others Have to Say</p>
             <Swiper
                 ref={swiperRef}
                 spaceBetween={20}
