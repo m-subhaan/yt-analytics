@@ -1,20 +1,9 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import SideBar from "../components/SideBar/Sidebar";
-import "./App.css";
+import React, { useState, useEffect } from "react";
 
 const Dashboard = () => {
-  const [sidebarIsOpen, setSidebarOpen] = useState(true);
-  const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
-
-
-
-
-  return (<>
-    <SideBar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
-
+  console.log('dashboard')
+  return <>
+    Dashboard Bitches!!!
   </>
-  );
-};
-
-export default Dashboard;
+}
+export default Dashboard
