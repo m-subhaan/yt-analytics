@@ -11,4 +11,7 @@
         @apply text-white border bg-primaryColor border-primaryColor
         hover:bg-transparent hover:text-primaryColor
     }
+    svg{
+        display: inline;
+    }
 }
