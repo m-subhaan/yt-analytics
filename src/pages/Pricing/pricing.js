@@ -7,11 +7,13 @@ import {
   from 'mdb-react-ui-kit';
 import { FaCheck } from 'react-icons/fa';
 import './styles.css';
+import MenuBar from "../../components/Navbar";
 
 
 const Pricing = () => {
   return (
     <>
+      <MenuBar/>
       <MDBContainer className="my-5">
         <MDBRow>
           <MDBCol md="6" className="mx-auto">

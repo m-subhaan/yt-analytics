@@ -3,13 +3,12 @@ import {
   MDBContainer,
   MDBCol,
   MDBRow,
-  MDBBtn,
-  MDBIcon,
   MDBInput,
   MDBCheckbox,
-  MDBCardTitle
 }
   from 'mdb-react-ui-kit';
+  import MenuBar from "../../components/Navbar";
+
   import Image from '../../assets/image.png';
 
 function Login() {
@@ -18,18 +17,19 @@ function Login() {
   const [clickSignIn, setClickSignIn] = useState(false)
 
   useEffect(() => {
-    console.log(username, password)
     setClickSignIn(false)
     setUsername('')
     setPassword('')
   }, [clickSignIn])
   return (
+    <>
+    <MenuBar/>
     <MDBContainer fluid className="p-3 my-5" style={{ maxWidth: "70%", marginTop: "7%", border:"1px solid #808080"}}>
 
       <MDBRow>
 
         <MDBCol col='10' md='6'>
-          <img src={Image} class="img-fluid" alt="Phone image" style={{borderRadius: "2%"}}/>
+          <img src={Image} class="img-fluid" alt="login" style={{borderRadius: "2%"}}/>
         </MDBCol>
 
         <MDBCol col='4' mt='6'>
@@ -39,7 +39,7 @@ function Login() {
 
           <div className="d-flex justify-content-between mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a style={{color:'#353738'}} href="#">Forgot password?</a>
+            <a style={{color:'#353738'}} href="/login">Forgot password?</a>
           </div>
           <button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => setClickSignIn(true)}>Sign in</button>
 
@@ -51,6 +51,7 @@ function Login() {
       </MDBRow>
 
     </MDBContainer>
+    </>
   );
 }
 
