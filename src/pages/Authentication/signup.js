@@ -9,6 +9,8 @@ import {
   MDBInput
 }
   from 'mdb-react-ui-kit';
+  import  { Link } from 'react-router-dom';
+
 import MenuBar from "../../components/Navbar";
 
 import Image from '../../assets/image.png';
@@ -113,7 +115,9 @@ function App() {
                       className="btn btn-lg btn-dark mb-2" onClick={Signup}>Signup</button>
                   </MDBCol>
                 </MDBRow>
-                <a href="login" className="d-flex justify-content-between mb-4 mt-2" style={{ color: '#353738' }}>Already have an account? Login here</a>
+                <Link to="/login">
+                <a href='/login' className="d-flex justify-content-between mb-4 mt-2" style={{ color: '#353738' }}>Already have an account? Login here</a>
+                </Link>
 
               </MDBCardBody>
             </MDBCol>

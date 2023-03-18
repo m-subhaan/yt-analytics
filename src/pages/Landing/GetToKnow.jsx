@@ -20,7 +20,7 @@ const GetToKnow = () => {
                         subscribers, our cutting-edge tools help you stay ahead of the game and crush your content
                         goals. Take control of your success and dominate the platform with confidence.
                     </p>
-                    <Link to="signup"><button className="py-3 px-6 rounded-md w-[200px] my-4">Sign Up</button></Link>
+                    <Link to="/signup"><button className="py-3 px-6 rounded-md w-[200px] my-4">Sign Up</button></Link>
                 </div>
             </div>
         </div>

@@ -11,77 +11,71 @@ import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
-import SubMenu from "./SubMenu";
+const SideBar = ({ isOpen, toggle }) => {
 
-const SideBar = ({ isOpen, toggle }) => (
-  <div className={classNames("sidebar", { "is-open": isOpen })}>
-    <div className="sidebar-header">
-      <span color="info" onClick={toggle} style={{ color: "#fff" }}>
-        &times;
-      </span>
-      <h3>
-        <span>My Channel</span>
-      </h3>
-    </div>
-    <div className="side-menu">
-      <Nav vertical className="list-unstyled pb-3">
-        <p>
-          <FontAwesomeIcon icon={faChartColumn} className="mr-2 ml-2" />
-          <span>1.3M Subscribers</span>
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
-          <span>1500 Watch Hours</span>
-        </p>
-        <hr></hr>
-        <NavItem>
-          <NavLink tag={Link} to={"/about"} style={{ color: "#fff" }}>
-            <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-            Analytics
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to={"/pages"} style={{ color: "#fff" }}>
-            <FontAwesomeIcon icon={faBookReader} className="mr-2" />
-            Keyword Research
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to={"/contact"} style={{ color: "#fff" }}>
-            <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-            Logout
-          </NavLink>
-        </NavItem>
-      </Nav>
-    </div>
-  </div>
-);
 
-const submenus = [
-  [
+  const items = [
     {
-      title: "Home 1",
-      target: "Home-1",
+      link: '#',
+      text: 'Dashboard',
+      key: 'dashboard',
+      icon: faBookReader,
     },
     {
-      title: "Home 2",
-      target: "Home-2",
+      link: '#',
+      text: 'Analytics',
+      key: 'analytics',
+      icon: faBriefcase
     },
     {
-      itle: "Home 3",
-      target: "Home-3",
-    },
-  ],
-  [
-    {
-      title: "Page 1",
-      target: "Page-1",
+      link: '#',
+      text: 'Keyword Search',
+      key: 'kwsearch',
+      icon: faBookReader
     },
     {
-      title: "Page 2",
-      target: "Page-2",
+      link: '#',
+      text: 'Logout',
+      key: 'logout',
+      icon: faPaperPlane
     },
-  ],
-];
+  ]
+
+
+  return (
+    <div className={classNames("sidebar", { "is-open": isOpen })}>
+      <div className="sidebar-header">
+        <span color="info" onClick={toggle}>
+          &times;
+        </span>
+        <h3>
+          <span className="">My Channel</span>
+        </h3>
+      </div>
+      <div className="side-menu">
+        <Nav vertical className="list-unstyled pb-3">
+          <p>
+            <FontAwesomeIcon icon={faChartColumn} className="mr-2 ml-2" />
+            <span>1.3M Subscribers</span>
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
+            <span>1500 Watch Hours</span>
+          </p>
+          <hr></hr>
+
+          {items.map(item => <NavItem className="sidebar-items" key={item.key}>
+            <NavLink tag={Link} to={item.link}>
+              <FontAwesomeIcon icon={item.icon} className="mr-2 custom-color-sidebar" />
+              <label className="custom-color-sidebar">{item.text}</label>
+            </NavLink>
+          </NavItem>)}
+
+        </Nav>
+      </div>
+    </div>
+  )
+};
+
 
 export default SideBar;
