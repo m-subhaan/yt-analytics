@@ -1,12 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHome,
   faBriefcase,
   faPaperPlane,
-  faQuestion,
-  faImage,
-  faPerson,
+  faBookReader,
   faEye,
   faChartColumn
 } from "@fortawesome/free-solid-svg-icons";
@@ -29,38 +26,30 @@ const SideBar = ({ isOpen, toggle }) => (
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">
         <p>
-          <FontAwesomeIcon icon={faChartColumn} className="mr-2" />
+          <FontAwesomeIcon icon={faChartColumn} className="mr-2 ml-2" />
           <span>1.3M Subscribers</span>
         </p>
         <p>
-          <FontAwesomeIcon icon={faEye} className="mr-2" />
+          <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
           <span>1500 Watch Hours</span>
         </p>
         <hr></hr>
-        {/* <SubMenu title="Home" icon={faHome} items={submenus[0]} style={{ color: "#fff" }} /> */}
         <NavItem>
           <NavLink tag={Link} to={"/about"} style={{ color: "#fff" }}>
             <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-            About
+            Analytics
           </NavLink>
         </NavItem>
-        {/* <SubMenu title="Pages" icon={faCopy} items={submenus[1]} style={{ color: "#fff" }} /> */}
         <NavItem>
           <NavLink tag={Link} to={"/pages"} style={{ color: "#fff" }}>
-            <FontAwesomeIcon icon={faImage} className="mr-2" />
-            Portfolio
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to={"/faq"} style={{ color: "#fff" }}>
-            <FontAwesomeIcon icon={faQuestion} className="mr-2" />
-            FAQ
+            <FontAwesomeIcon icon={faBookReader} className="mr-2" />
+            Keyword Research
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink tag={Link} to={"/contact"} style={{ color: "#fff" }}>
             <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-            Contact
+            Logout
           </NavLink>
         </NavItem>
       </Nav>
