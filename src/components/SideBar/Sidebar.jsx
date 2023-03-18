@@ -6,7 +6,9 @@ import {
   faPaperPlane,
   faQuestion,
   faImage,
-  faCopy,
+  faPerson,
+  faEye,
+  faChartColumn
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
@@ -20,11 +22,21 @@ const SideBar = ({ isOpen, toggle }) => (
       <span color="info" onClick={toggle} style={{ color: "#fff" }}>
         &times;
       </span>
-      <h3>Bootstrap Sidebar</h3>
+      <h3>
+        <span>My Channel</span>
+      </h3>
     </div>
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">
-        <p>Dummy Heading</p>
+        <p>
+          <FontAwesomeIcon icon={faChartColumn} className="mr-2" />
+          <span>1.3M Subscribers</span>
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faEye} className="mr-2" />
+          <span>1500 Watch Hours</span>
+        </p>
+        <hr></hr>
         {/* <SubMenu title="Home" icon={faHome} items={submenus[0]} style={{ color: "#fff" }} /> */}
         <NavItem>
           <NavLink tag={Link} to={"/about"} style={{ color: "#fff" }}>
