@@ -15,21 +15,21 @@ const SideBar = ({ isOpen, toggle }) => {
 
 
   const items = [
+    // {
+    //   link: '#',
+    //   text: 'Dashboard',
+    //   key: 'dashboard',
+    //   icon: faBookReader,
+    // },
     {
-      link: '#',
-      text: 'Dashboard',
-      key: 'dashboard',
-      icon: faBookReader,
-    },
-    {
-      link: '#',
+      link: '/analytics',
       text: 'Analytics',
       key: 'analytics',
       icon: faBriefcase
     },
     {
-      link: '#',
-      text: 'Keyword Search',
+      link: '/keywordresearch',
+      text: 'Keyword Research',
       key: 'kwsearch',
       icon: faBookReader
     },
@@ -64,10 +64,10 @@ const SideBar = ({ isOpen, toggle }) => {
           </p>
           <hr></hr>
 
-          {items.map(item => <NavItem className="sidebar-items" key={item.key}>
+          {items.map(item => <NavItem className="sidebar-items" key={item.key} style={{cursor:"pointer"}}>
             <NavLink tag={Link} to={item.link}>
               <FontAwesomeIcon icon={item.icon} className="mr-2 custom-color-sidebar" />
-              <label className="custom-color-sidebar">{item.text}</label>
+              <label className="custom-color-sidebar" style={{cursor:"pointer"}}>{item.text}</label>
             </NavLink>
           </NavItem>)}
 

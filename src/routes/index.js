@@ -8,7 +8,9 @@ import SignUp from "../pages/Authentication/signup";
 
 
 // Dashboard
-import Dashboard from "../pages";
+import Analytics from "../pages/Analytics/Analytics";
+import KeywordResearch from "../pages/KeywordResearch/KeywordResearch";
+
 import LadningContainer from "../pages/Landing";
 
 //Pricing
@@ -18,7 +20,8 @@ import Pricing from "../pages/Pricing/pricing";
 const userRoutes = [
 
   //Dashboard
-  { path: "/dashboard", component: Dashboard },
+  { path: "/analytics", component: Analytics },
+  { path: "/keywordresearch", component: KeywordResearch },
   { path: "/", component: LadningContainer},
   { path: "/pricing", component: Pricing},
 

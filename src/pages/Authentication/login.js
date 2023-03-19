@@ -43,10 +43,7 @@ function Login() {
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
             <a style={{color:'#353738'}} href="/login">Forgot password?</a>
           </div>
-          <Link to="/dashboard"><button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => setClickSignIn(true)}>Sign in</button></Link>
-
-          {/* <MDBBtn className="mb-4 w-100" size="lg" onClick={setClickSignIn(true)}>Sign in</MDBBtn> */}
-          {/* <MDBBtn className="mb-4 w-100" size="lg" onClick={(e)=>console.log('clicked')}>Sign in</MDBBtn> */}
+          <Link to="/analytics"><button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => setClickSignIn(true)}>Sign in</button></Link>
           <Link to="/signup"><a href='/signup' style={{color:'#353738'}} className="d-flex justify-content-between mx-4 mb-4" >Don't have an account? Register here</a></Link>
         </MDBCol>
 
