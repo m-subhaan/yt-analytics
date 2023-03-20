@@ -4,6 +4,7 @@ import Header from "./Header";
 import TrustedBy from "./TrustedBy";
 import GetToKnow from "./GetToKnow";
 import HowItWorksSection from "./HowItWorks";
+import Footer from "../../components/Footer";
 
 const LadningContainer = () => {
     return (
@@ -22,6 +23,7 @@ const LadningContainer = () => {
                 description="Revolutionize your content creation with our AI-powered SEO title and description generator. 
                 Say goodbye to writer's block and hello to high-ranking content that gets noticed. 
                 Streamline your process and dominate search results with just a few clicks." />
+            <Footer/>
         </>
     )
 }

@@ -15,12 +15,6 @@ const SideBar = ({ isOpen, toggle }) => {
 
 
   const items = [
-    // {
-    //   link: '#',
-    //   text: 'Dashboard',
-    //   key: 'dashboard',
-    //   icon: faBookReader,
-    // },
     {
       link: '/analytics',
       text: 'Analytics',
@@ -49,7 +43,7 @@ const SideBar = ({ isOpen, toggle }) => {
           &times;
         </span>
         <h3>
-          <span className="">My Channel</span>
+          <img class="rounded-circle" alt="avatar1" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
         </h3>
       </div>
       <div className="side-menu">
@@ -64,10 +58,10 @@ const SideBar = ({ isOpen, toggle }) => {
           </p>
           <hr></hr>
 
-          {items.map(item => <NavItem className="sidebar-items" key={item.key} style={{cursor:"pointer"}}>
+          {items.map(item => <NavItem className="sidebar-items" key={item.key} style={{ cursor: "pointer" }}>
             <NavLink tag={Link} to={item.link}>
               <FontAwesomeIcon icon={item.icon} className="mr-2 custom-color-sidebar" />
-              <label className="custom-color-sidebar" style={{cursor:"pointer"}}>{item.text}</label>
+              <label className="custom-color-sidebar" style={{ cursor: "pointer" }}>{item.text}</label>
             </NavLink>
           </NavItem>)}
 
