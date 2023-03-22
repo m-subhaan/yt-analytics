@@ -1,10 +1,21 @@
 import axios from 'axios';
 
-class BoilerService {
-    static async getRepositories(query, category, page) {
-        return await axios.get(
-            `https://api.boilerservice.com/search/${category}?q=${query}&page=${page}&per_page=100`
-        );
+export async function getAllUsers() {
+
+    try {
+        const response = await fetch('/api/users');
+        return await response.json();
+    } catch (error) {
+        return [];
     }
+
 }
-export default BoilerService;
+
+export async function createUser(data) {
+    const response = await fetch(`/api/user`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user: data })
+    })
+    return await response.json();
+}
