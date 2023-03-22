@@ -1,1 +1,1 @@
-export const BASE_URL=""
+export const BASE_URL="https://youtube-analytics-apis-production.up.railway.app/api";
