@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { BASE_URL } from "../../constants";
+import { BASE_URL } from "../constants";
 export async function getAllUsers() {
 
     try {
-        const response = await axios(`${BASE_URL}/api/users`);
-        return response.json();
+        return await axios(`${BASE_URL}/api/users`);
     } catch (error) {
         return error;
     }
@@ -12,10 +11,9 @@ export async function getAllUsers() {
 }
 
 export async function createUser(data) {
-    const response = await axios(`${BASE_URL}/users/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    return response.json();
+    console.log(data)
+    const response = await axios.post(`${BASE_URL}/users/register`, data)
+    if (response.status == 200) return true;
+    return response.body?.error || 'Server error'
+
 }

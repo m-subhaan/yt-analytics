@@ -10,6 +10,7 @@ import {
 }
   from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import { Alert } from "reactstrap";
 
 import MenuBar from "../../components/Navbar";
 import { createUser } from "../../services/BoilerService"
@@ -22,6 +23,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [youtubeChannelLink, setYoutubeChannelLink] = useState('');
+  const [successAlert, setSuccessAlert] = useState(false)
 
 
   const resetStates = () => {
@@ -49,20 +51,27 @@ function App() {
   const handleChangeYoutubeChannelLink = (event) => {
     setYoutubeChannelLink(event.target.value);
   }
-  const Signup = () => {
-    const obj = {
-      "First Name ": firstName,
-      "Last Name ": lastName,
-      "Email ": email,
-      "Password ": password,
+  const Signup = async () => {
+    const res = await createUser({
+      "fullname": firstName + ' ' + lastName,
+      "email": email,
+      "password": password,
+      "youtubeChannelLink": youtubeChannelLink
+    })
+    if (res === true) {
+      window.location.href = "/login";
+      setSuccessAlert(true)
     }
-    console.log(obj);
     resetStates();
+
   }
 
   return (
     <>
       <MenuBar />
+      {successAlert && <Alert>
+        User created
+      </Alert>}
       <MDBContainer className="my-5">
 
         <MDBCard>
