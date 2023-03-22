@@ -9,7 +9,7 @@ import {
   MDBInput
 }
   from 'mdb-react-ui-kit';
-  import  { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import MenuBar from "../../components/Navbar";
 
@@ -21,12 +21,15 @@ function App() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [youtubeChannelLink, setYoutubeChannelLink] = useState('');
+
 
   const resetStates = () => {
     setFirstName('');
     setLastName('');
     setEmail('');
     setPassword('');
+    setYoutubeChannelLink('');
 
   }
 
@@ -42,6 +45,9 @@ function App() {
   }
   const handleChangePassword = (event) => {
     setPassword(event.target.value);
+  }
+  const handleChangeYoutubeChannelLink = (event) => {
+    setYoutubeChannelLink(event.target.value);
   }
   const Signup = () => {
     const obj = {
@@ -106,7 +112,11 @@ function App() {
                   value={password}
                   placeholder="********"
                 />
-
+                <MDBInput wrapperClass='mb-4' label='Youtube Channel Link' id='youtube' type='text' size="lg"
+                  onChange={handleChangeYoutubeChannelLink}
+                  value={youtubeChannelLink}
+                  placeholder="https://www.youtube.com/channel/channel_id"
+                />
                 <MDBRow>
                   <MDBCol md='12'>
                     <button style={{
@@ -116,7 +126,7 @@ function App() {
                   </MDBCol>
                 </MDBRow>
                 <Link to="/login">
-                <a href='/login' className="d-flex justify-content-between mb-4 mt-2" style={{ color: '#353738' }}>Already have an account? Login here</a>
+                  <a href='/login' className="d-flex justify-content-between mb-4 mt-2" style={{ color: '#353738' }}>Already have an account? Login here</a>
                 </Link>
 
               </MDBCardBody>
