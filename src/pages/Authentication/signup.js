@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 
 import MenuBar from "../../components/Navbar";
-
+import { createUser } from "../../services/BoilerService"
 import Image from '../../assets/image.png';
 
 
