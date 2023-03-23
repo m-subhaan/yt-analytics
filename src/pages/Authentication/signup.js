@@ -23,7 +23,9 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [youtubeChannelLink, setYoutubeChannelLink] = useState('');
-  const [successAlert, setSuccessAlert] = useState(false)
+  const [successAlert, setSuccessAlert] = useState(false);
+  const [failureAlert, setFailureAlert] = useState(false);
+
 
 
   const resetStates = () => {
@@ -52,15 +54,25 @@ function App() {
     setYoutubeChannelLink(event.target.value);
   }
   const Signup = async () => {
-    const res = await createUser({
-      "fullname": firstName + ' ' + lastName,
-      "email": email,
-      "password": password,
-      "youtubeChannelLink": youtubeChannelLink
-    })
-    if (res === true) {
-      window.location.href = "/login";
-      setSuccessAlert(true)
+    try {
+      const res = await createUser({
+        "fullname": firstName + ' ' + lastName,
+        "email": email,
+        "password": password,
+        "youtubeChannelLink": youtubeChannelLink
+      });
+      if (res === true) {
+        setSuccessAlert(true);
+        setTimeout(() => {
+          setSuccessAlert(false);
+          window.location.href = "/login";
+        }, 2000);
+      }
+    } catch (error) {
+      setFailureAlert(true);
+      setTimeout(() => {
+        setFailureAlert(false);
+      }, 2000);
     }
     resetStates();
 
@@ -70,7 +82,10 @@ function App() {
     <>
       <MenuBar />
       {successAlert && <Alert>
-        User created
+        User created successfully
+      </Alert>}
+      {failureAlert && <Alert color='danger'>
+        User creation unsuccessful
       </Alert>}
       <MDBContainer className="my-5">
 
