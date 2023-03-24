@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { BASE_URL } from "../constants";
-export async function getAllUsers() {
+export async function login() {
+    //lay boss
+    //GET /api/users/login/{email}/{password}
 
     try {
         return await axios(`${BASE_URL}/api/users`);
