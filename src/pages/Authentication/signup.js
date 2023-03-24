@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBContainer,
   MDBCard,
@@ -18,6 +19,8 @@ import Image from '../../assets/image.png';
 
 
 function App() {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -65,7 +68,7 @@ function App() {
         setSuccessAlert(true);
         setTimeout(() => {
           setSuccessAlert(false);
-          window.location.href = "/login";
+          navigate('/login');
         }, 2000);
       }
     } catch (error) {
