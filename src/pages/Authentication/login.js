@@ -7,29 +7,34 @@ import {
   MDBCheckbox,
 }
   from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 import MenuBar from "../../components/Navbar";
 import { login } from '../../services/BoilerService'
 import Image from '../../assets/image.png';
+import { Alert } from "reactstrap";
 
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [failureAlert, setFailureAlert] = useState(false);
+  const navigate = useNavigate();
 
   const loginUser = async () => {
-    console.log('sending req....')
-    console.log(username, password)
-    const res = await login(username, password)
-    console.log(username, password)
-    console.log('*'.repeat(100))
-    console.log(res)
-    setUsername('')
-    setPassword('')
+    try {
+      const { status, data = {} } = await login(username, password)
+
+      if (status == 200) navigate('/analytics')
+    } catch (e) {
+      setFailureAlert(true)
+    }
+    setFailureAlert(true)
   }
   return (
     <>
       <MenuBar />
+      {failureAlert && <Alert color='danger'>
+        Invalid Credentials
+      </Alert>}
       <MDBContainer fluid className="p-3 my-5" style={{ maxWidth: "70%", marginTop: "7%", border: "1px solid #808080" }}>
 
         <MDBRow>
@@ -47,7 +52,7 @@ function Login() {
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
               <a style={{ color: '#353738' }} href="/login">Forgot password?</a>
             </div>
-            <Link to="/analytics"><button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => loginUser()}>Sign in</button></Link>
+            <button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => loginUser()}>Sign in</button>
             <Link to="/signup"><a href='/signup' style={{ color: '#353738' }} className="d-flex justify-content-between mx-4 mb-4" >Don't have an account? Register here</a></Link>
           </MDBCol>
 
