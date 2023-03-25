@@ -14,3 +14,21 @@ export const createUser = async (data) => {
 
     return response.body?.error || 'Server error'
 }
+
+export const fetchAllVideos = async (ChannelLinkName) => {
+    const response = await axios.get(`${BASE_URL}/users/channels/videos/${ChannelLinkName}`)
+    if (response.status === 200) {
+        return response.data;
+    }
+
+    return response.body?.error || 'Server error'
+}
+
+export const fetchChannelDetails = async (ChannelLinkName) => {
+    const response = await axios.get(`${BASE_URL}/users/channels/channel-details/${ChannelLinkName}`)
+    if (response.status === 200) {
+        return response.data;
+    }
+
+    return response.body?.error || 'Server error'
+}

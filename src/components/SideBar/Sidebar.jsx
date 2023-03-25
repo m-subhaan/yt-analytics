@@ -11,7 +11,7 @@ import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
-const SideBar = ({ isOpen, toggle }) => {
+const SideBar = ({ isOpen, toggle, profileImageUrl, totalSubscribers, totalViews }) => {
 
 
   const items = [
@@ -43,18 +43,18 @@ const SideBar = ({ isOpen, toggle }) => {
           &times;
         </span>
         <h3>
-          <img class="rounded-circle" alt="avatar1" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+          <img class="rounded-circle" alt="avatar1" src={profileImageUrl} />
         </h3>
       </div>
       <div className="side-menu">
         <Nav vertical className="list-unstyled pb-3">
           <p>
             <FontAwesomeIcon icon={faChartColumn} className="mr-2 ml-2" />
-            <span>1.3M Subscribers</span>
+            <span>{totalSubscribers} Subscribers</span>
           </p>
           <p>
             <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
-            <span>1500 Watch Hours</span>
+            <span>{totalViews} Views</span>
           </p>
           <hr></hr>
 
