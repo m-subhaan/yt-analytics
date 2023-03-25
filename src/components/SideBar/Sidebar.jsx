@@ -28,7 +28,7 @@ const SideBar = ({ isOpen, toggle }) => {
       icon: faBookReader
     },
     {
-      link: '#',
+      link: '/login',
       text: 'Logout',
       key: 'logout',
       icon: faPaperPlane

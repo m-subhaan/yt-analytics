@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar/Sidebar";
 import Chart from "../../components/Chart.jsx";
+import store from '../../redux/store';
+import { getChannelLinkName } from '../../redux/Selectors/selectors';
+
 import "./styles.css";
 import {
     MDBContainer,
@@ -16,7 +19,10 @@ const Analytics = () => {
     const [sidebarIsOpen, setSidebarOpen] = useState(true);
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
-
+    useEffect(() => {
+        const channelLinkName = getChannelLinkName(store.getState());
+        console.log(channelLinkName);
+    }, []);
 
 
     return (<div className="d-flex flex-row">
@@ -46,7 +52,7 @@ const Analytics = () => {
                     <img
                         src={DummyClient}
                         className="img-thumbnail"
-                        alt="Profile Picture"
+                        alt="Profile"
                     />
                 </MDBCol>
                 <MDBCol md="2" className="d-flex align-items-stretch">
