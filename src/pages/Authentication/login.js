@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -21,9 +21,9 @@ function Login() {
 
   const loginUser = async () => {
     try {
-      const { status, data = {} } = await login(username, password)
+      const { status = {} } = await login(username, password)
 
-      if (status == 200) navigate('/analytics')
+      if (status === 200) navigate('/analytics')
     } catch (e) {
       setFailureAlert(true)
     }
