@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from 'axios'
 import {
     faThumbsUp,
     faEye,
@@ -8,6 +9,7 @@ import {
 import SideBar from "../../components/SideBar/Sidebar";
 import Chart from "../../components/Chart.jsx";
 import store from '../../redux/store';
+import Table from '../../components/table'
 import { getChannelLink } from '../../redux/Selectors/selectors';
 
 import "./styles.css";
@@ -26,6 +28,7 @@ const Analytics = () => {
     const [videos, setVideos] = useState([]);
     const [channelDetails, setchannelDetails] = useState({});
     const [selectedVideo, setSelectedVideo] = useState(null);
+    const [videoKeywords, setVideoKeywords] = useState([]);
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
     useEffect(() => {
@@ -43,8 +46,7 @@ const Analytics = () => {
         fetchData()
     }, []);
 
-    const launchAnalysis = (video) => {
-        console.log(video);
+    const launchAnalysis = async video => {
         const data = {
             options: {
                 chart: {
@@ -65,7 +67,9 @@ const Analytics = () => {
             ],
             title: video.title,
         };
-
+        setVideoKeywords([])
+        const { data: res } = await axios.post('https://flask-production-f273.up.railway.app/analyze_keywords', { keywords: video.keywords })
+        setVideoKeywords(res?.keywords.map(x => ({ title: x.keyword, competition: x.analysis?.split(',')?.[0]?.replaceAll('(', ''), volume: x.analysis.split(',')?.[1]?.replaceAll(')', '')?.replaceAll('.', '') })))
         setSelectedVideo(data);
     }
 
@@ -230,6 +234,10 @@ const Analytics = () => {
                         </div>
                     </>
                 )}
+            </MDBRow>
+            <MDBRow
+                className="mt-5">
+                {videoKeywords.length > 0 && <Table columns={['Title', 'Competition', 'Volume']} rows={videoKeywords} />}
             </MDBRow>
         </MDBContainer>
     </div>
