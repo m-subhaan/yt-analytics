@@ -26,12 +26,14 @@ const Analytics = () => {
     const [sidebarIsOpen, setSidebarOpen] = useState(true);
     const [videos, setVideos] = useState([]);
     const [channelDetails, setchannelDetails] = useState({});
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
 
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
     useEffect(() => {
         // const channelLinkName = getChannelLinkName(store.getState());
-        const channelLinkName = 'UCn6j6z1YgWP5iTQFFf8jBaA';
+        const channelLinkName = 'UCNnTAL36waj4iei2XB_PSMw';
         const fetchData = async () => {
             try {
                 const data = await fetchAllVideos(channelLinkName);
@@ -44,6 +46,32 @@ const Analytics = () => {
         }
         fetchData()
     }, []);
+
+    const launchAnalysis = (video) => {
+        console.log(video);
+        const data = {
+            options: {
+                chart: {
+                    id: "basic-bar",
+                },
+                xaxis: {
+                    categories: ["Likes", "Comments", "Views"],
+                },
+                yaxis: {
+                    categories: [10, 100, 1000],
+                },
+            },
+            series: [
+                {
+                    name: "series-1",
+                    data: [video.likes, video.comments, video.views],
+                },
+            ],
+            title: video.title,
+        };
+
+        setSelectedVideo(data);
+    }
 
 
     return (<div className="d-flex flex-row">
@@ -186,12 +214,26 @@ const Analytics = () => {
                                 <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
                                 <span>{video.views} Views</span>
                             </div>
-                            <button className="btn btn-success mb-2">
+                            <button className="btn btn-success mb-2" onClick={() => launchAnalysis(video)}>
                                 Launch Analysis and Graph
                             </button>
                         </div>
                     ))}
                 </div>
+                {selectedVideo && (
+                    <>
+                        <h4>Chart</h4>
+                        <p>{selectedVideo.title}</p>
+                        <div className="chart-container">
+                            <Chart
+                                options={selectedVideo.options}
+                                series={selectedVideo.series}
+                                type="bar"
+                                width="500"
+                            />
+                        </div>
+                    </>
+                )}
             </MDBRow>
         </MDBContainer>
     </div>
