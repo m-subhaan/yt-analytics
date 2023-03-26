@@ -47,12 +47,12 @@ const Analytics = () => {
 
 
     return (<div className="d-flex flex-row">
-        <SideBar 
-        toggle={toggleSidebar} 
-        isOpen={sidebarIsOpen} 
-        profileImageUrl={channelDetails.profileImageUrl} 
-        totalSubscribers={channelDetails.totalSubscribers} 
-        totalViews={channelDetails.totalViews}
+        <SideBar
+            toggle={toggleSidebar}
+            isOpen={sidebarIsOpen}
+            profileImageUrl={channelDetails.profileImageUrl}
+            totalSubscribers={channelDetails.totalSubscribers}
+            totalViews={channelDetails.totalViews}
         />
         <MDBContainer className="my-5">
             <MDBRow className="ml-5">
@@ -125,7 +125,7 @@ const Analytics = () => {
                         <img src={Medal} className="card-img-top p-4" alt="medal" />
                         <div className="card-body">
                             <h6 className="card-title">Comments/video</h6>
-                            <p className="card-text">{channelDetails.totalComments/channelDetails.totalVideos}</p>
+                            <p className="card-text">{channelDetails.totalComments / channelDetails.totalVideos}</p>
                         </div>
                     </div>
                 </MDBCol>
@@ -171,32 +171,27 @@ const Analytics = () => {
                         </p>
                     </center>
                 </MDBCol>
-                {videos.map(video => {
-                    return (
-                        <MDBRow className="my-4">
-                            <MDBCol md="4">
-                                <img src={video.thumbnailLink} alt="Video Thumbnail" height="300px" width="300px" />
-                            </MDBCol>
-                            <MDBCol md="8">
-                                <h2>{video.title}</h2>
-                                <p>{video.publishedAt}</p>
-                                <p>{video.description}</p>
-                                <div className="d-flex align-items-center mb-3">
-                                    <FontAwesomeIcon icon={faThumbsUp} className="mr-2 ml-2" />
-                                    <span>{video.likes} Likes</span>
-                                </div>
-                                <div className="d-flex align-items-center mb-3">
-                                    <FontAwesomeIcon icon={faComment} className="mr-2 ml-2" />
-                                    <span>{video.comments} Comments</span>
-                                </div>
-                                <div className="d-flex align-items-center">
-                                    <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
-                                    <span>{video.views} Views</span>
-                                </div>
-                            </MDBCol>
-                        </MDBRow>
-                    )
-                })}
+                <div className="video-container">
+                    {videos.map(video => (
+                        <div key={video.id} className="video-item">
+                            <img src={video.thumbnailLink} alt="Video Thumbnail" height="100%" width="100%" />
+                            <h2 className="mb-3">{video.title}</h2>
+                            <p className="mb-3">{video.publishedAt}</p>
+                            <p className="mb-3">{video.description}</p>
+                            <div className="d-flex mb-5">
+                                <FontAwesomeIcon icon={faThumbsUp} className="mr-2 ml-2" />
+                                <span>{video.likes} Likes</span>
+                                <FontAwesomeIcon icon={faComment} className="mr-2 ml-2" />
+                                <span>{video.comments} Comments</span>
+                                <FontAwesomeIcon icon={faEye} className="mr-2 ml-2" />
+                                <span>{video.views} Views</span>
+                            </div>
+                            <button className="btn btn-success mb-2">
+                                Launch Analysis and Graph
+                            </button>
+                        </div>
+                    ))}
+                </div>
             </MDBRow>
         </MDBContainer>
     </div>

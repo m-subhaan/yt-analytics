@@ -15,4 +15,7 @@
     svg {
         display: inline;
     }
+    body {
+        overflow-x: hidden;
+      }
 }
