@@ -10,6 +10,7 @@ import {
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
+import './styles.css';
 
 const SideBar = ({ isOpen, toggle, profileImageUrl, totalSubscribers, totalViews }) => {
 
