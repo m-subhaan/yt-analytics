@@ -127,3 +127,34 @@ li a.dropdown-toggle::after {
     left: 68%;
   }
 }
+
+.suggestions-container {
+  position: absolute;
+  width: 800px;
+  margin-top: 0px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  z-index: 9999;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+.suggestions-container span {
+  display: block;
+  cursor: pointer;
+}
+
+.suggestions-container span:hover {
+  background-color: #eee;
+}
+.react-autosuggest__input{
+  width: 800px;
+}
+
+.react-autosuggest__suggestions-list{
+  margin: 0px;
+  padding: 0px;
+}
+.react-autosuggest__suggestion{
+  margin: 0px;
+  padding: 0px;
+}
