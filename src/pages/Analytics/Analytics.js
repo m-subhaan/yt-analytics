@@ -8,7 +8,7 @@ import {
 import SideBar from "../../components/SideBar/Sidebar";
 import Chart from "../../components/Chart.jsx";
 import store from '../../redux/store';
-import { getChannelLinkName } from '../../redux/Selectors/selectors';
+import { getChannelLink } from '../../redux/Selectors/selectors';
 
 import "./styles.css";
 import {
@@ -19,7 +19,6 @@ import {
     from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
-import DummyClient from "../../assets/client-dummy.png";
 import Medal from "../../assets/medal.png";
 import { fetchAllVideos, fetchChannelDetails } from "../../services/BoilerService";
 const Analytics = () => {
@@ -27,17 +26,14 @@ const Analytics = () => {
     const [videos, setVideos] = useState([]);
     const [channelDetails, setchannelDetails] = useState({});
     const [selectedVideo, setSelectedVideo] = useState(null);
-
-
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
     useEffect(() => {
-        // const channelLinkName = getChannelLinkName(store.getState());
-        const channelLinkName = 'UCNnTAL36waj4iei2XB_PSMw';
+        const channelLink = getChannelLink(store.getState());
         const fetchData = async () => {
             try {
-                const data = await fetchAllVideos(channelLinkName);
-                const details = await fetchChannelDetails(channelLinkName);
+                const data = await fetchAllVideos(channelLink);
+                const details = await fetchChannelDetails(channelLink);
                 setVideos(data);
                 setchannelDetails(details);
             } catch (error) {

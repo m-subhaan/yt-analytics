@@ -1,1 +1,1 @@
-export const getChannelLinkName = (state) => state.channelLinkName;
+export const getChannelLink = (state) => state.channelLink.channelLinkName;

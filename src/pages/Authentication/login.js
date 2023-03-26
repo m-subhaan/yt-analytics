@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCol,
@@ -12,6 +12,8 @@ import MenuBar from "../../components/Navbar";
 import { login } from '../../services/BoilerService'
 import Image from '../../assets/image.png';
 import { Alert } from "reactstrap";
+import store from '../../redux/store';
+import { setChannelLinkName } from '../../redux/Actions/Actions';
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -21,9 +23,11 @@ function Login() {
 
   const loginUser = async () => {
     try {
-      const { status = {} } = await login(username, password)
-
-      if (status === 200) navigate('/analytics')
+      const response = await login(username, password)
+      if (response?.status === 200) {
+        store.dispatch(setChannelLinkName(response?.data?.youtubeChannelLink));
+        navigate('/analytics')
+      }
     } catch (e) {
       setFailureAlert(true)
     }
