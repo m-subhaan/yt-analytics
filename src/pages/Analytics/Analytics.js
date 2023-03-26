@@ -82,7 +82,7 @@ const Analytics = () => {
             <MDBRow className="ml-5">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item active" aria-current="page">Analytics</li>
+                        <li className="breadcrumb-item h2 bold" aria-current="page">Analytics</li>
                     </ol>
                 </nav>
             </MDBRow>

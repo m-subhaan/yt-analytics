@@ -1,6 +1,5 @@
 .suggestions-container {
-  position: absolute;
-  width: 800px;
+  /* position: absolute; */
   margin-top: 0px;
   border: 1px solid #aaa;
   background-color: #fff;
@@ -17,7 +16,7 @@
   background-color: #eee;
 }
 .react-autosuggest__input{
-  width: 800px;
+  width: 100%;
 }
 
 .react-autosuggest__suggestions-list{
