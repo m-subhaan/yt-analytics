@@ -46,6 +46,7 @@ const SideBar = ({ isOpen, toggle, profileImageUrl, totalSubscribers, totalViews
           <img class="rounded-circle" alt="avatar1" src={profileImageUrl} />
         </h3>
       </div>
+      <hr></hr>
       <div className="side-menu">
         <Nav vertical className="list-unstyled pb-3">
           <p>
