@@ -1,1 +1,2 @@
 export const SET_CHANNEL_LINK_NAME = 'SET_CHANNEL_LINK_NAME';
+export const SET_KEYWORD = "SET_KEYWORD";

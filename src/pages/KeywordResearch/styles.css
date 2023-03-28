@@ -17,6 +17,8 @@
 }
 .react-autosuggest__input{
   width: 100%;
+  padding: 10px;
+
 }
 
 .react-autosuggest__suggestions-list{
@@ -26,4 +28,41 @@
 .react-autosuggest__suggestion{
   margin: 0px;
   padding: 0px;
+}
+
+.button-group-container .btn-active {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.button-group-container .btn-active:focus {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.button-group-container .btn-inactive {
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.button-group-container .btn-inactive:focus {
+  background-color: #fff;
+  border-color: #000;
+  color: #000;
+}
+
+.button-group-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  /* for example */
+}
+
+.btn-lg {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.25rem;
 }

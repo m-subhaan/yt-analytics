@@ -1,7 +1,8 @@
-import { SET_CHANNEL_LINK_NAME } from '../Constants/Constants';
+import { SET_CHANNEL_LINK_NAME, SET_KEYWORD } from '../Constants/Constants';
 
 const initialState = {
   channelLinkName: '',
+  keyword: '',
 };
 
 export const channelLinkReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ export const channelLinkReducer = (state = initialState, action) => {
       return {
         ...state,
         channelLinkName: action.payload,
+      };
+    case SET_KEYWORD:
+      return {
+        ...state,
+        keyword: action.payload,
       };
     default:
       return state;
