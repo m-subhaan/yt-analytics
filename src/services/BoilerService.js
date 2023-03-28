@@ -32,3 +32,12 @@ export const fetchChannelDetails = async (ChannelLinkName) => {
 
     return response.body?.error || 'Server error'
 }
+
+export const fetchChannelAverageStats = async (channelVideos) => {
+    const response = await axios.post(`${BASE_URL}/users/channel/average-stats`, channelVideos)
+    if (response.status === 200) {
+        return response.data;
+    }
+
+    return response.body?.error || 'Server error'
+}
