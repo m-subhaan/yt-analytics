@@ -44,7 +44,7 @@ const SideBar = ({ isOpen, toggle, profileImageUrl, totalSubscribers, totalViews
           &times;
         </span>
         <h3>
-          <img class="rounded-circle" alt="avatar1" src={profileImageUrl} />
+          <img className="rounded-circle" alt="avatar1" src={profileImageUrl} />
         </h3>
       </div>
       <hr></hr>

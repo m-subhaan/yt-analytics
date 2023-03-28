@@ -20,7 +20,8 @@ const KeywordResearch = () => {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [channelDetails, setchannelDetails] = useState({});
-  const [searchKeywordData, setSearchKeywordData] = useState([]);
+  const [searchCommonWords, setSearchCommonWords] = useState([]);
+  const [searchUncommonWords, setSearchUncommonWords] = useState([]);
   const [titleDesc, setTitleDesc] = useState({});
 
 
@@ -75,22 +76,27 @@ const KeywordResearch = () => {
   };
 
   const searchkeyword = async () => {
-    setSearchKeywordData([])
+    setSearchCommonWords([])
+    setSearchUncommonWords([])
     setTitleDesc({})
     const regex = /\(([^)]+)\)/;
-    let { data } = await axios.post('https://flask-production-f273.up.railway.app/keyword-suggestions-common', { prompt: value })
-    data = sanitize(data)
-    setSearchKeywordData(data.map(x => ({ tite: x.split('(')?.[0]?.trim(), competition: regex.exec(x)?.[1]?.split(",")?.[0]?.trim(), volume: regex.exec(x)?.[1]?.split(",")?.[1]?.replace(')', '') })))
+    const endpoints = ['common', 'uncommen']
+    endpoints.map(async endpoint => {
+      let { data } = await axios.post(`https://flask-production-f273.up.railway.app/keyword-suggestions-${endpoint}`, { prompt: value })
+      data = sanitize(data)
+      const trimmed = data.map(x => ({ tite: x.split('(')?.[0]?.trim(), competition: regex.exec(x)?.[1]?.split(",")?.[0]?.trim(), volume: regex.exec(x)?.[1]?.split(",")?.[1]?.replace(')', '') }))
+      endpoint == 'common' ? setSearchCommonWords(trimmed) : setSearchUncommonWords(trimmed)
+    })
+
   }
   const generateTitle = async () => {
     setTitleDesc({})
-    setSearchKeywordData([])
+    setSearchCommonWords([])
+    setSearchUncommonWords([])
     let { data } = await axios.post('https://flask-production-f273.up.railway.app/generate-content', { input_string: value })
     data = data.generated_sentence?.split('\n').filter(x => x)
     const title = data.shift()
     const description = data.join(' ')
-console.log(description)
-console.log(title)
     setTitleDesc({ title, description })
   }
 
@@ -132,20 +138,31 @@ console.log(title)
             <button className="btn btn-sm btn-outline-dark ml-3" onClick={generateTitle}>Generate Title</button>
           </MDBCol>
         </MDBRow>
-        <MDBRow
-          className="mt-5">
-          {searchKeywordData.length > 0 && <Table columns={['Title', 'Competition', 'Volume']} rows={searchKeywordData} />}
+        <MDBRow className="mt-5">
+          <MDBCol md="6" >
+            <div className="h3 bold" >Keyword Research</div>
+            <ol>
+              {searchCommonWords.map(x => <li>{x.tite}</li>)}
+            </ol>
+          </MDBCol>
+          <MDBCol md="6" >
+            <div className="h3 bold" >Keyword Research</div>
+            <ol>
+              {searchUncommonWords.map(x => <li>{x.tite}</li>)}
+            </ol>
+
+          </MDBCol>
         </MDBRow>
         <MDBRow
           className="mt-5">
           {titleDesc?.title && (
             <MDBRow className="ml-5">
-                  <p className="h4 bold mb-3" aria-current="page">Title:</p>
-                  <p className="h5 bold mb-5" aria-current="page">{titleDesc?.title}</p>
-                  <br></br>
-                  
-                  <p className="h4 bold mb-3"  aria-current="page">Description:</p>
-                  <p className="h5 bold mb-3" aria-current="page">{titleDesc?.description}</p>
+              <p className="h4 bold mb-3" aria-current="page">Title:</p>
+              <p className="h5 bold mb-5" aria-current="page">{titleDesc?.title}</p>
+              <br></br>
+
+              <p className="h4 bold mb-3" aria-current="page">Description:</p>
+              <p className="h5 bold mb-3" aria-current="page">{titleDesc?.description}</p>
 
             </MDBRow>
 

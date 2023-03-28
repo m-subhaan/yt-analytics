@@ -44,7 +44,7 @@ function Login() {
         <MDBRow>
 
           <MDBCol col='10' md='6'>
-            <img src={Image} class="img-fluid" alt="login" style={{ borderRadius: "2%" }} />
+            <img src={Image} className="img-fluid" alt="login" style={{ borderRadius: "2%" }} />
           </MDBCol>
 
           <MDBCol col='4' mt='6'>
@@ -56,7 +56,7 @@ function Login() {
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
               <a style={{ color: '#353738' }} href="/login">Forgot password?</a>
             </div>
-            <button type="button" class="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => loginUser()}>Sign in</button>
+            <button type="button" className="btn btn-dark btn-lg mb-5" style={{ width: "100%" }} onClick={() => loginUser()}>Sign in</button>
             <Link to="/signup"><a href='/signup' style={{ color: '#353738' }} className="d-flex justify-content-between mx-4 mb-4" >Don't have an account? Register here</a></Link>
           </MDBCol>
 
