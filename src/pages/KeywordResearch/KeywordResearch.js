@@ -25,7 +25,7 @@ const KeywordResearch = () => {
   const [titleDesc, setTitleDesc] = useState({});
 
 
-
+  const firstLetters = text => text?.split(' ')?.map(x => x[0]?.toUpperCase())
   const sanitize = data => data?.suggestions?.[0]?.split('\n')?.filter(x => x)?.map(x => x?.replace(/\d+. /, '')?.replaceAll('"', ''))
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const KeywordResearch = () => {
     setSearchUncommonWords([])
     setTitleDesc({})
     const regex = /\(([^)]+)\)/;
-    const endpoints = ['common', 'uncommen']
+    const endpoints = ['common', 'uncommon']
     endpoints.map(async endpoint => {
       let { data } = await axios.post(`https://flask-production-f273.up.railway.app/keyword-suggestions-${endpoint}`, { prompt: value })
       data = sanitize(data)
@@ -140,15 +140,16 @@ const KeywordResearch = () => {
         </MDBRow>
         <MDBRow className="mt-5">
           <MDBCol md="6" >
-            <div className="h3 bold" >Keyword Research</div>
+            {console.log(searchCommonWords)}
+            <div className="h3 bold" >Common Keywords</div>
             <ol>
-              {searchCommonWords.map(x => <li>{x.tite}</li>)}
+              {searchCommonWords.map(x => <li>{x.tite} - {firstLetters(x.competition)} - {firstLetters(x.volume)}</li>)}
             </ol>
           </MDBCol>
           <MDBCol md="6" >
-            <div className="h3 bold" >Keyword Research</div>
+            <div className="h3 bold" >Uncommon Keywords</div>
             <ol>
-              {searchUncommonWords.map(x => <li>{x.tite}</li>)}
+              {searchUncommonWords.map(x => <li>{x.tite} - {firstLetters(x.competition)} - {firstLetters(x.volume)}</li>)}
             </ol>
 
           </MDBCol>
