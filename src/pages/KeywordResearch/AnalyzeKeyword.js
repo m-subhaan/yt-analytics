@@ -32,6 +32,10 @@ const AnalyzeKeyword = () => {
     }
   }, [value])
 
+  useEffect(() => {
+    store.dispatch(setKeyword(''));
+  }, [])
+
   const handleChange = (event, { newValue }) => {
     store.dispatch(setKeyword(newValue));
     setValue(newValue);

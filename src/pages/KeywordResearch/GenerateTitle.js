@@ -24,7 +24,7 @@ const GenerateTitle = () => {
 }, []);
 
   const handleChangeKeyword = (event) => {
-    store.dispatch(setKeyword(event.target.value));
+    // store.dispatch(setKeyword(event.target.value));
     setValue(event.target.value);
   }
 
