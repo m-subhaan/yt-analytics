@@ -22,13 +22,14 @@ import {
 import { Link } from 'react-router-dom';
 
 import Medal from "../../assets/medal.png";
-import { fetchAllVideos, fetchChannelDetails } from "../../services/BoilerService";
+import { fetchAllVideos, fetchChannelAverageStats, fetchChannelDetails } from "../../services/BoilerService";
 const Analytics = () => {
     const [sidebarIsOpen, setSidebarOpen] = useState(true);
     const [videos, setVideos] = useState([]);
     const [channelDetails, setchannelDetails] = useState({});
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [videoKeywords, setVideoKeywords] = useState([]);
+    const [avgStats, setAvgStats] = useState({});
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
     useEffect(() => {
@@ -38,6 +39,9 @@ const Analytics = () => {
                 const data = await fetchAllVideos(channelLink);
                 const details = await fetchChannelDetails(channelLink);
                 setVideos(data);
+                const averageStats = await fetchChannelAverageStats(data);
+                setAvgStats(averageStats);
+                console.log(averageStats)
                 setchannelDetails(details);
             } catch (error) {
                 console.log(error);
@@ -139,8 +143,8 @@ const Analytics = () => {
                     <div className="card">
                         <img src={Medal} className="card-img-top p-4" alt="medal" />
                         <div className="card-body">
-                            <h6 className="card-title">Total Comments</h6>
-                            <p className="card-text">{channelDetails.totalComments}</p>
+                            <h6 className="card-title">Average Comments</h6>
+                            <p className="card-text">{avgStats.avgComments}</p>
                         </div>
                     </div>
                 </MDBCol>
@@ -148,8 +152,8 @@ const Analytics = () => {
                     <div className="card">
                         <img src={Medal} className="card-img-top p-4" alt="medal" />
                         <div className="card-body">
-                            <h6 className="card-title">Total Views</h6>
-                            <p className="card-text">{channelDetails.totalViews}</p>
+                            <h6 className="card-title">Average Views</h6>
+                            <p className="card-text">{avgStats.avgViews}</p>
                         </div>
                     </div>
                 </MDBCol>
@@ -157,8 +161,8 @@ const Analytics = () => {
                     <div className="card">
                         <img src={Medal} className="card-img-top p-4" alt="medal" />
                         <div className="card-body">
-                            <h6 className="card-title">Comments/video</h6>
-                            <p className="card-text">{channelDetails.totalComments / channelDetails.totalVideos}</p>
+                            <h6 className="card-title">Average Likes</h6>
+                            <p className="card-text">{avgStats.avgLikes}</p>
                         </div>
                     </div>
                 </MDBCol>
