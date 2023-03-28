@@ -46,7 +46,14 @@ const Analytics = () => {
         fetchData()
     }, []);
 
-    const launchAnalysis = async video => {
+    const plotTable = async video => {
+        setVideoKeywords([])
+        const { data: res } = await axios.post('https://flask-production-f273.up.railway.app/analyze_keywords', { keywords: video.keywords })
+        setVideoKeywords(res?.keywords.map(x => ({ title: x.keyword, competition: x.analysis?.split(',')?.[0]?.replaceAll('(', ''), volume: x.analysis.split(',')?.[1]?.replaceAll(')', '')?.replaceAll('.', '') })))
+
+
+    }
+    const launchAnalysis = video => {
         const data = {
             options: {
                 chart: {
@@ -67,9 +74,7 @@ const Analytics = () => {
             ],
             title: video.title,
         };
-        setVideoKeywords([])
-        const { data: res } = await axios.post('https://flask-production-f273.up.railway.app/analyze_keywords', { keywords: video.keywords })
-        setVideoKeywords(res?.keywords.map(x => ({ title: x.keyword, competition: x.analysis?.split(',')?.[0]?.replaceAll('(', ''), volume: x.analysis.split(',')?.[1]?.replaceAll(')', '')?.replaceAll('.', '') })))
+        plotTable(video);
         setSelectedVideo(data);
     }
 
