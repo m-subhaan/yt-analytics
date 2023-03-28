@@ -10,7 +10,7 @@ import {
   MDBCol
 } from 'mdb-react-ui-kit';
 import "./styles.css";
-import {setKeyword} from "../../redux/Actions/Actions";
+import { setKeyword } from "../../redux/Actions/Actions";
 
 const AnalyzeKeyword = () => {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
@@ -103,15 +103,66 @@ const AnalyzeKeyword = () => {
         <MDBRow className="mt-5">
           <MDBCol md="6" >
             <div className="h3 bold" >Common Keywords</div>
-            <ol>
-              {searchCommonWords.map(x => <li>{x.tite} - {firstLetters(x.competition)} - {firstLetters(x.volume)}</li>)}
-            </ol>
+            <div>
+              {searchCommonWords.map(x => (
+                <p style={{
+                  border: "1px solid black",
+                  padding: "10px",
+                  borderRadius: "5px",
+                  margin: "5px",
+                  display: "block" // changed display to block
+                }}>
+                  {x.tite}
+                  <span style={{
+                    border: "1px solid black",
+                    padding: "2px",
+                    borderRadius: "5px",
+                    float: "right",
+                    marginLeft: "5px"
+                  }}>{firstLetters(x.competition)}</span>
+                  <span style={{
+                    border: "1px solid black",
+                    padding: "2px",
+                    borderRadius: "5px",
+                    float: "right",
+                    marginLeft: "5px"
+                  }}>{firstLetters(x.volume)}</span>
+                </p>
+              ))}
+            </div>
+
+
           </MDBCol>
           <MDBCol md="6" >
             <div className="h3 bold" >Uncommon Keywords</div>
-            <ol>
-              {searchUncommonWords.map(x => <li>{x.tite} - {firstLetters(x.competition)} - {firstLetters(x.volume)}</li>)}
-            </ol>
+            <div>
+              {searchUncommonWords.map(x => (
+                <p style={{
+                  border: "1px solid black",
+                  padding: "10px",
+                  borderRadius: "5px",
+                  margin: "5px",
+                  display: "block" // changed display to block
+                }}>
+                  {x.tite}
+                  <span style={{
+                    border: "1px solid black",
+                    padding: "2px",
+                    borderRadius: "5px",
+                    float: "right",
+                    marginLeft: "5px"
+                  }}>{firstLetters(x.competition)}</span>
+                  <span style={{
+                    border: "1px solid black",
+                    padding: "2px",
+                    borderRadius: "5px",
+                    float: "right",
+                    marginLeft: "5px"
+                  }}>{firstLetters(x.volume)}</span>
+                </p>
+              ))}
+            </div>
+
 
           </MDBCol>
         </MDBRow>
