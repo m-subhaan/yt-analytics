@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar/Sidebar";
-import Autosuggest from 'react-autosuggest';
-import axios from "axios";
 import store from '../../redux/store';
 import { getChannelLink } from '../../redux/Selectors/selectors';
 import { fetchChannelDetails } from "../../services/BoilerService";
 import {
   MDBContainer,
-  MDBRow,
-  MDBCol
 } from 'mdb-react-ui-kit';
 import "./styles.css";
 import Button from 'react-bootstrap/Button';

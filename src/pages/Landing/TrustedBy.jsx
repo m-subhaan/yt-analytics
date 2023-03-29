@@ -1,4 +1,4 @@
-import {useState, useRef} from "react";
+import {useRef} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import SwiperCore, {Autoplay} from "swiper/core";
 
@@ -11,11 +11,6 @@ SwiperCore.use([Autoplay]);
 
 function TrustedBy() {
     const swiperRef = useRef(null);
-    const [swiperIndex, setSwiperIndex] = useState(0);
-
-    const handleSlideChange = swiper => {
-        setSwiperIndex(swiper.activeIndex);
-    };
 
     const handleRotateSlides = () => {
         const swiperInstance = swiperRef.current.swiper;
@@ -31,7 +26,6 @@ function TrustedBy() {
                 spaceBetween={20}
                 slidesPerView={1}
                 autoplay={{delay: 2000}}
-                onSlideChange={handleSlideChange}
                 onAutoplay={handleRotateSlides}
                 loop={true}
                 breakpoints={{

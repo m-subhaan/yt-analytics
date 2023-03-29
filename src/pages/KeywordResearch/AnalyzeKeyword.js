@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Autosuggest from 'react-autosuggest';
 import axios from "axios";
 import store from '../../redux/store';
-import { getChannelLink } from '../../redux/Selectors/selectors';
-import { fetchChannelDetails } from "../../services/BoilerService";
 import {
   MDBContainer,
   MDBRow,
@@ -13,7 +11,6 @@ import "./styles.css";
 import { setKeyword } from "../../redux/Actions/Actions";
 
 const AnalyzeKeyword = () => {
-  const [sidebarIsOpen, setSidebarOpen] = useState(true);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [searchCommonWords, setSearchCommonWords] = useState([]);
@@ -70,7 +67,7 @@ const AnalyzeKeyword = () => {
       let { data } = await axios.post(`https://flask-production-f273.up.railway.app/keyword-suggestions-${endpoint}`, { prompt: value })
       data = sanitize(data)
       const trimmed = data.map(x => ({ tite: x.split('(')?.[0]?.trim(), competition: regex.exec(x)?.[1]?.split(",")?.[0]?.trim(), volume: regex.exec(x)?.[1]?.split(",")?.[1]?.replace(')', '') }))
-      endpoint == 'common' ? setSearchCommonWords(trimmed) : setSearchUncommonWords(trimmed)
+      endpoint === 'common' ? setSearchCommonWords(trimmed) : setSearchUncommonWords(trimmed)
     })
 
   }

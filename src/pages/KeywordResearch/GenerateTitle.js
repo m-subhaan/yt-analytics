@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Autosuggest from 'react-autosuggest';
 import axios from "axios";
 import store from '../../redux/store';
 import { getKeyword } from '../../redux/Selectors/selectors';
-import { fetchChannelDetails } from "../../services/BoilerService";
 import {
   MDBContainer,
   MDBRow,
@@ -12,7 +10,6 @@ import {
   MDBTextArea,
 } from 'mdb-react-ui-kit';
 import "./styles.css";
-import {setKeyword} from "../../redux/Actions/Actions";
 
 
 const GenerateTitle = () => {
