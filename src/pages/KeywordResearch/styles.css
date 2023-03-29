@@ -66,3 +66,35 @@
   padding: 0.75rem 2.5rem;
   font-size: 1.25rem;
 }
+
+.chat-box {
+  position: relative;
+  height: 90%;
+  overflow-y: scroll;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 10px 0px;
+}
+
+.input {
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.submit-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  padding: 200px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

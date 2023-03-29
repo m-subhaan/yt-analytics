@@ -12,6 +12,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 import AnalyzeKeyword from "./AnalyzeKeyword";
 import GenerateTitle from "./GenerateTitle";
+import Search from "./Search";
 
 const KeywordResearch = () => {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
@@ -41,6 +42,8 @@ const KeywordResearch = () => {
       return <AnalyzeKeyword />;
     } else if (activeTab === 'middle') {
       return <GenerateTitle />;
+    }else if(activeTab==='right'){
+      return <Search/>
     }
   };
 
@@ -71,6 +74,13 @@ const KeywordResearch = () => {
             value="middle"
           >
             Generate Title
+          </Button>
+          <Button
+            variant={activeTab === 'right' ? 'active' : 'inactive'}
+            onClick={handleClick}
+            value="right"
+          >
+            Search Anything
           </Button>
         </ButtonGroup>
       </div>
